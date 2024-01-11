@@ -19,7 +19,15 @@ To learn more about the tools included in the Responsible AI Toolbox and how to 
 
 ## Environment
 
-To use the Responsible AI Toolbox, the `raiwidgets` Python package must be installed. In addition to that, depending on which tools you want to use, you may need to install additional packages. See the [responsible-ai-toolbox](https://github.com/microsoft/responsible-ai-toolbox) documentation for details.
+### Environment compatibility requirements
+
+To use the Responsible AI Toolbox, the `raiwidgets` Python package must be installed.
+
+In addition to that, depending on which tools you want to use, you may need to install additional packages. See the [responsible-ai-toolbox](https://github.com/microsoft/responsible-ai-toolbox) documentation for details.
+
+> Please notice that the packages on the Responsible AI Toolbox may require older versions of Python packages such as numpy, pandas, scikit-learn, scipy, ipython and others. These are [requirements of the Python packages](https://github.com/search?q=repo%3Amicrosoft%2Fresponsible-ai-toolbox+path%3Arequirements.txt&type=code) that are part of responsible-ai-toolbox, and not requirements imposed by Domino. That means that the toolbox may not be compatible with compute environments that have recent versions of these packages. In order to run the toolbox, it will be necessary to install the responsible-ai-toolbox packages on a compute environment that has older, compatible versions of the required packages, or a minimal set of packages.
+
+### Environment creation instructions
 
 To create a Domino compute environment that meets the requirements:
 
@@ -27,7 +35,7 @@ To create a Domino compute environment that meets the requirements:
 2. On the `Name` field enter the environment name (e.g. "raiwidgets").
 3. On the `Base Environment / Image` group, select "Start from a custom base image" and enter this image URI on the `FROM` field:
 ```
-quay.io/domino/compute-environment-images:ubuntu20-py3.9-domino5.8-minimal
+quay.io/domino/compute-environment-images:ubuntu20-py3.9-domino5.9-minimal
 ```
 4. On the `Visibility` field, choose between "Private" (the default) or "Globally Accessible".
 5. Click the `Customize before building` button.
