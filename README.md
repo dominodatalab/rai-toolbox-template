@@ -85,17 +85,8 @@ The Responsible AI Dashboard runs as a Flask app on the same container that is r
 
 In order to be able to access the dashboard, the appropriate link must be assembled. Jupyter and JupyterLab have the ability to reverse proxy requests by appending the `/proxy/{port}` path to the URL.
 
-This snippet will display a clickable link that will open the dashboard on a new browser tab, assuming that the `dashboard` Python variable contains the Dashboard object:
+See [examples/link-snippet.ipynb](https://github.com/dominodatalab/rai-toolbox-template/blob/main/examples/link-snippet.ipynb) for a code snippet that can be added to a Jupyter or JupyterLab notebook to display a clickable link that will open the dashboard on a new browser tab, assuming that the `dashboard` Python variable contains the Dashboard object instance.
 
-```python
-import os
-from IPython.display import HTML
-DOMINO_USER_NAME = os.environ.get('DOMINO_USER_NAME')
-DOMINO_PROJECT_NAME = os.environ.get('DOMINO_PROJECT_NAME')
-DOMINO_RUN_ID = os.environ.get('DOMINO_RUN_ID')
-port=dashboard.config['baseUrl'].split(':')[-1]
-url = f"/{DOMINO_USER_NAME}/{DOMINO_PROJECT_NAME}/notebookSession/{DOMINO_RUN_ID}/proxy/{port}"
-display(HTML(f'<a href="{url}" target="_blank">Responsible AI Dashboard</a>'))
-```
+The link will open on the same Domino workspace session, and access control will be enforced so that only authorized users can view the dashboard.
 
-See [examples/responsibleaidashboard-housing-decision-making.ipynb](examples/responsibleaidashboard-housing-decision-making.ipynb) for a complete example.
+See [examples/responsibleaidashboard-housing-decision-making.ipynb](https://github.com/dominodatalab/rai-toolbox-template/blob/main/examples/responsibleaidashboard-housing-decision-making.ipynb) for a full example.
